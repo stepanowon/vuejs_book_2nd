@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>03-05</title>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    x : <input type='text' v-model="x" /><br />
+    y : <input type='text' v-model="y" /><br />
+    덧셈 결과 : {{sum}}
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+    el : "#example",
+    data : { x:0, y:0, sum:0 },
+    watch : {
+        x : function(v) {
+            console.log('## x 변경')
+            var result = Number(v) + Number(this.y);
+            if (isNaN(result)) this.sum = 0;
+            else this.sum = result;
+        },
+        y : function(v) {
+            console.log('## y 변경')
+            this.y = v;
+            var result = Number(this.x) + Number(v);
+            if (isNaN(result)) this.sum = 0;
+            else this.sum = result;
+        }
+    }
+})
+</script>
+</body>
+</html>
