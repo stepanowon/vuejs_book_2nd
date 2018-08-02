@@ -2,7 +2,9 @@
 - 저자: 원형섭
 - 출판사: 루비페이퍼
 <img src="cover_vuejs_quickstart.png" data-canonical-src="cover_vuejs_quickstart.png" width="300" height="300" />
+
 ----------------------------
+
 
 ## 오탈자, 공지사항
 * 오탈자는 [여기](오탈자.MD)를 확인합니다.
