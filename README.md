@@ -7,7 +7,13 @@
 * 오탈자는 [여기](오탈자.MD)를 확인합니다.
 
 ## 업그레이드 변경사항
-* 내용 없음
+1. vuejs-paginate 컴포넌트 버전업 문제
+책쓸 당시의 version은 1.9.3버전 이었으나 2.x로 업그레이드 되었습니다. 282페이지의 패키지 다운로드하는 부분을 다음과 같이 바꿔주세요.
+~~~
+yarn add vuejs-paginate@1.9.3 bootstrap@3.3.7
+- 또는 -
+npm install --save  vuejs-paginate@1.9.3 bootstrap@3.3.7
+~~~
 
 ## 예제파일
 * 각 장별로 examples 디렉터리에 예제를 분류하였습니다.
