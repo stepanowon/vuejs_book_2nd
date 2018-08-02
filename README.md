@@ -3,9 +3,11 @@
 - 출판사: 루비페이퍼
 <img src="cover_vuejs_quickstart.png" data-canonical-src="cover_vuejs_quickstart.png" width="300" height="300" />
 ----------------------------
+
 ## 오탈자, 공지사항
 * 오탈자는 [여기](오탈자.MD)를 확인합니다.
 ----------------------------
+
 ## 업그레이드 변경사항
 ### 1. vuejs-paginate 컴포넌트 버전업 문제
 집필 당시의 version은 1.9.3버전 이었으나 2.x로 업그레이드 되었습니다. 일부기능의 오류가 발생합니다. 282페이지에서 패키지를 다운로드하는 부분을 다음과 같이 바꿔주세요.
@@ -14,7 +16,8 @@ yarn add vuejs-paginate@1.9.3 bootstrap@3.3.7
 - 또는 -
 npm install --save  vuejs-paginate@1.9.3 bootstrap@3.3.7
 ~~~
-------------------------------
+-------------------------------
+
 ## 예제파일
 * 각 장별로 examples 디렉터리에 예제를 분류하였습니다.
 * 장별로 여러개의 프로젝트가 있는 경우는 장별로 Readme파일이 있습니다. 각 절마다 어떤 프로젝트를 사용하는지 명시되어 있습니다.
@@ -22,7 +25,8 @@ npm install --save  vuejs-paginate@1.9.3 bootstrap@3.3.7
 * 이 책에서 사용하는 서비스 API 예제는 다음을 확인하세요.    
    * API 다운로드 : https://github.com/stepanowon/contactsvc 
    * API 사용법 : http://sample.bmaster.kro.kr
-------------------------------
+--------------------------------
+
 ## 목차
 - CHAPTER 01 시작하기
   - 1.1 Vue.js란?
