@@ -10,12 +10,17 @@
          </div>
       </div>
       <router-view></router-view>
+      <vue-element-loading :active="isloading" spinner="bar-fade-scale" color="#FF6700" is-full-screen />
   </div>
 </template>
 
 <script>
+import VueElementLoading from 'vue-element-loading'
+import { mapState } from 'vuex';
 export default {    
-    name: 'app'
+    name: 'app',
+    components : { VueElementLoading },
+    computed : mapState(['isloading'])
 }
 </script>
 

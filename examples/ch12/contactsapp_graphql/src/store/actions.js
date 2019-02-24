@@ -12,16 +12,18 @@ export default {
         else 
             pageno = payload.pageno;
         var pagesize = store.state.contactlist.pagesize;
-
+        store.commit(Constant.CHANGE_IS_LOADING, { isloading: true });
         apolloClient.query({
             query : queries.FETCH_CONTACTS, 
             variables : { pageno, pagesize }
         }).then((response)=> {
             store.commit(Constant.FETCH_CONTACTS, { contactlist: response.data.contactsAll });
+            store.commit(Constant.CHANGE_IS_LOADING, { isloading: false});
         })
     },
     [Constant.ADD_CONTACT] : (store) => {
         const contact = store.state.contact;
+        store.commit(Constant.CHANGE_IS_LOADING, { isloading: true});
         apolloClient.mutate({
             mutation : queries.INSERT_CONTACT,
             variables : {
@@ -30,6 +32,7 @@ export default {
                 address:contact.address
             }
         }).then((response)=> {
+            store.commit(Constant.CHANGE_IS_LOADING, { isloading: false});
             const res = response.data.insertContact;
             if (res.status == "ok") {
                 store.dispatch(Constant.FETCH_CONTACTS, { pageno: 1});                
@@ -41,6 +44,7 @@ export default {
     [Constant.UPDATE_CONTACT] : (store) => {
         let currentPageNo = store.state.contactlist.pageno;
         let contact = store.state.contact;
+        store.commit(Constant.CHANGE_IS_LOADING, { isloading: true });
         apolloClient.mutate({
             mutation : queries.UPDATE_CONTACT,
             variables : {
@@ -50,6 +54,7 @@ export default {
                 address : contact.address
             }
         }).then((response)=>{
+            store.commit(Constant.CHANGE_IS_LOADING, { isloading: false});
             let res = response.data.updateContact;
             if (res.status == "ok") {
                 store.dispatch(Constant.FETCH_CONTACTS, { pageno: currentPageNo });
@@ -60,6 +65,7 @@ export default {
     },
     [Constant.UPDATE_PHOTO] : (store, payload) => {
         let currentPageNo = store.state.contactlist.pageno;
+        store.commit(Constant.CHANGE_IS_LOADING, { isloading: true });
         uploadClient.mutate({
             mutation : queries.CHANGE_PHOTO,
             variables : {
@@ -67,6 +73,7 @@ export default {
                 file : payload.file
             }
         }).then((response)=> {
+            store.commit(Constant.CHANGE_IS_LOADING, { isloading: false});
             store.dispatch(Constant.FETCH_CONTACTS, { pageno: currentPageNo });
         })
 
@@ -80,12 +87,14 @@ export default {
     },
     [Constant.DELETE_CONTACT] : (store, payload)=> {
         let currentPageNo = store.state.contactlist.pageno;
+        store.commit(Constant.CHANGE_IS_LOADING, { isloading: true });
         apolloClient.mutate({
             mutation: queries.DELETE_CONTACT,
             variables : {
                 _id: payload._id
             }
         }).then((response)=> {
+            store.commit(Constant.CHANGE_IS_LOADING, { isloading: false});
             const res = response.data.deleteContact;
             if (res.status == "ok") {
                 store.dispatch(Constant.FETCH_CONTACTS, { pageno: currentPageNo });              
@@ -99,10 +108,12 @@ export default {
         if (c) {
             store.commit(Constant.FETCH_CONTACT_ONE, { contact : { ...c }})
         }
+        //store.commit(Constant.CHANGE_IS_LOADING, { isloading: true });
         // apolloClient.query({
         //     query : queries.FETCH_CONTACT_ONE,
         //     variables : { _id : payload._id }
         // }).then(response=> {
+        //     store.commit(Constant.CHANGE_IS_LOADING, { isloading: false});
         //     let res = response.data.contactOne;
         //     store.commit(Constant.FETCH_CONTACT_ONE, { contact:res });
         // })

@@ -2,6 +2,9 @@ import Constant from '../Constant';
 
 //상태를 변경하는 기능만을 뽑아서...
 export default {
+    [Constant.CHANGE_IS_LOADING] : (state, payload) => {
+        state.isloading = payload.isloading;
+    },
     [Constant.FETCH_CONTACTS] : (state, payload) => {
         state.contactlist = payload.contactlist;
     },
