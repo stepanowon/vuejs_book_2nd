@@ -1,3 +1,5 @@
+const ansiRegex = require('ansi-regex')
+
 module.exports = {
     devServer: {
         proxy: {
@@ -10,5 +12,6 @@ module.exports = {
                 }
             }
         }
-    }
+    },
+    transpileDependencies: [ansiRegex]
 }

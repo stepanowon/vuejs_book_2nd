@@ -63,7 +63,7 @@
 import Constant from "../Constant";
 import { mapState } from "vuex";
 import Paginate from "vuejs-paginate";
-import Velocity from "velocity-animate";
+
 export default {
   name: "contactList",
   components: { Paginate },
@@ -86,7 +86,7 @@ export default {
     this.$refs.pagebuttons.selected = page - 1;
   },
   watch: {
-    $route: function(to, from) {
+    $route: function(to) {
       if (to.query.page && to.query.page != this.contactlist.pageno) {
         var page = to.query.page;
         this.$store.dispatch(Constant.FETCH_CONTACTS, { pageno: page });
