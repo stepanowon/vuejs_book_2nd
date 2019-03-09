@@ -6,7 +6,7 @@ export default {
     FETCH_CONTACT_ONE : "fetchContactOne",      //연락처 한건 조회
     INITIALIZE_CONTACT_ONE : "initializeContactOne",    //연락처 초기화
     INITIALIZE_CONTACTLIST : "initializeContactList",
-
+    CHANGE_IS_LOADING : "changeIsLoading",
     //액션만 존재    
     ADD_CONTACT : "addContact",             //연락처 추가
     UPDATE_CONTACT : "updateContact",       //연락처 수정
