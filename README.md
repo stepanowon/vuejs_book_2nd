@@ -22,6 +22,11 @@ yarn add vuejs-paginate@1.9.3 bootstrap@3.3.7
 - 또는 -
 npm install --save  vuejs-paginate@1.9.3 bootstrap@3.3.7
 ~~~
+
+### 2. Vue CLI 3.x으로 작성한 코드를 IE11에서 작동하도록 설정하기
+아래 문서를 참조하세요.
+https://steemit.com/vue-cli3/@stepanowon/vue-cli-3-x-ie11
+
 -------------------------------
 
 ## 예제파일
