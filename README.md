@@ -15,7 +15,8 @@
 ### 0. 연락처 서비스( http://sample.bmaster.kro.kr )가 가끔 작동하지 않을 경우가 있습니다. 그런 경우에는 다음의 주소를 이용하세요.
 * http://sample2.bmaster.kro.kr
 * https://contactsvc.herokuapp.com
-특히 작성한 Vue 앱을 netlify와 같은 배포 서비스에 등록하여 테스트할 때는 https를 지원하는 연락처 서비스가 필요합니다. 이 경우에는 https://contactsvc.herokuapp.com 를 이용하면 됩니다.
+
+- 특히 작성한 Vue 앱을 netlify와 같은 배포 서비스에 등록하여 테스트할 때는 https를 지원하는 연락처 서비스가 필요합니다. 이 경우에는 https://contactsvc.herokuapp.com 를 이용하면 됩니다.
 
 ### 1. Vue CLI 3.0 정식버전이 출시되었습니다. 축하합니다!!
 이 책은 Vue CLI 3.0 rc.3 기준으로 쓰여졌지만 예제와 기능 테스트에는 문제가 없을 것으로 생각됩니다.
