@@ -12,7 +12,7 @@
 
 ## 업그레이드 변경사항
 
-### 0. 연락처 서비스(http://sample.bmaster.kro.kr)가 가끔 작동하지 않을 경우가 있습니다. 그런 경우에는 다음의 주소의 를 이용하세요.
+### 0. 연락처 서비스(http://sample.bmaster.kro.kr)가 가끔 작동하지 않을 경우가 있습니다. 그런 경우에는 다음의 주소를 이용하세요.
 * http://sample2.bmaster.kro.kr
 * https://contactsvc.herokuapp.com
 
