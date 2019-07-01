@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>06-18</title>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<!-- child Component 시작 -->
+<style>
+    .buttonstyle { width:120px; height:30px; text-align: center; }
+</style>
+<template id="childTemplate">
+    <div>
+
+    </div>
+</template>
+<script type="text/javascript">
+Vue.component('child-component', {
+    template : '#childTemplate'
+
+})
+</script>
+<!-- child Component 끝 -->
+<!-- parent Component 시작 -->
+<template id="parent-template">
+    <div>
+
+
+    </div>
+</template>
+<script type="text/javascript">
+Vue.component('parent-component', {
+    template : '#parent-template'
+
+})
+</script>
+<!-- parent Component 끝 -->
+<body>
+    <div id="app">
+        <parent-component :buttons="buttons"></parent-component>
+    </div>
+</body>
+<script type="text/javascript">
+var vm = new Vue({
+    el : "#app",
+    data : {
+        buttons : [ 
+            { text : "Hello", value : "영어" }, 
+            { text : "씬짜오", value : "베트남어" },
+            { text : "니하오", value : "중국어" }
+        ]
+    }
+})
+</script>
+</html>

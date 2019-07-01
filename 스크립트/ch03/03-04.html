@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>03-04</title>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <input type="text" v-model="num" /><br />
+    1부터 입력된 수까지의 합 : <span></span>
+</div>
+<script type="text/javascript">
+//1부터 입력된 수까지의 합구하기
+var vmSum = new Vue({
+    el : "#example",
+    data : { num : 0 },
+    methods : {
+
+    }
+});
+</script>
+</body>
+</html>
