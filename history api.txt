@@ -2,3 +2,5 @@ history 모드를 사용하려면...
 1. 브라우저가 HTML5 history API를 지원해야 함.
 2. Vue App을 호스팅하는   웹서버가 historyApiFallback 기능을 제공해야 함,.
   --> 웹서버별로 추가적인 설정이 요구됨..
+  
+  https://router.vuejs.org/kr/guide/essentials/history-mode.html
