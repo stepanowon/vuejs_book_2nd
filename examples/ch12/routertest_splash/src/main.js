@@ -42,7 +42,7 @@ const ContactByNo = () => ({
 const router = new VueRouter({
   mode : "history",
   routes : [
-    { path:'/', redirect: { name: 'home' } },
+    { path:'/', redirect: '/home' },
     { path:'/home', component: Home },
     { path:'/about', component: About },
     { path:'/contacts', component: Contacts, 
