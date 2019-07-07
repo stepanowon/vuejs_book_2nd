@@ -1,5 +1,6 @@
 <template>
-  <vue-element-loading :active="true" spinner="bar-fade-scale" is-full-screen />
+  <vue-element-loading :active="true" spinner="bar-fade-scale"
+    background-color="#FFFFFF" color="#000000" is-full-screen />
 </template>
 
 <script>

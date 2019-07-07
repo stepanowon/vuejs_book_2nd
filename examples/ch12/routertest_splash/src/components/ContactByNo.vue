@@ -36,21 +36,13 @@ export default {
             contacts : contactlist.contacts
         }
     },
-    created : function() {
-        this.no = this.$route.params.no;
-    },
-    watch : {
-        '$route'(to) {
-            this.no = to.params.no;
-        }
-    },
     computed : {
         contact : function() {
-            var no = this.no;
+            var no = parseInt(this.$route.params.no);
             var arr = this.contacts.filter(function(item) {
-                return item.no == no;
+                return item.no === no;
             });
-            if (arr.length == 1)   return arr[0];
+            if (arr.length === 1)   return arr[0];
             else   return {};
         }
     }

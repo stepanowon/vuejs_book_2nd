@@ -3,6 +3,7 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import VueRouter from 'vue-router'
 import store from './store';
+import Constant from './Constant';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
@@ -54,14 +55,12 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next)=> {
-  //store.dispatch(Constant.CHANGE_ISLOADING, { isloading: true })
-  store.state.isloading = true;
+  store.dispatch(Constant.CHANGE_ISLOADING, { isloading: true })
   next();
 })
 
 router.afterEach(()=> {
-  //store.dispatch(Constant.CHANGE_ISLOADING, { isloading: false })
-  store.state.isloading = false;
+  store.dispatch(Constant.CHANGE_ISLOADING, { isloading: false })
 })
 
 

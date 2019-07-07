@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     },
     actions : {
         [Constant.CHANGE_ISLOADING] : (store, payload)=> {
-            store.dispatch(Constant.CHANGE_ISLOADING, payload);
+            store.commit(Constant.CHANGE_ISLOADING, payload);
         }
     }
 })
