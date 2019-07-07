@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "bootstrap": "3.x.x",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
@@ -34,7 +35,7 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console":"off"
+      "no-console": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"
