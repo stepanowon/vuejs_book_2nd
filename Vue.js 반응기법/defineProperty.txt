@@ -1,0 +1,54 @@
+var obj = {
+  
+   data: {
+
+      a: 100
+ 
+   }
+
+};
+
+
+Object.defineProperty(obj, "a", {
+  set: function(x) {
+    console.log("## setter call : ", x);
+    this.data.a = x;
+  },
+  get: function() {
+    console.log("## getter call : ", this.data.a);
+    return this.data.a;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+--------------------------------
+
+var obj = {
+  
+   data: {
+
+      a: 100
+, b:200, c:300
+   }
+
+};
+
+
+for (var k in obj.data) {
+
+  (function(k) {
+    Object.defineProperty(obj, k, {
+      set: function(x) {
+        console.log("## setter call : ", k, x);
+        this.data[k] = x;
+      },
+      get: function() {
+        console.log("## getter call : ", k, this.data[k]);
+        return this.data[k];
+      },
+      enumerable: true,
+      configurable: true
+    });
+  })(k);
+}

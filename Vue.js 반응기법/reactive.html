@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>reactive</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="test">
+    <div id="a1">{{num}}</div>
+    <button @click="add">100씩 증가</button>
+  </div>
+  <script type="text/javascript">
+
+  var vm = new Vue({
+    el : "#test",
+    data : {
+        num: 100
+    },
+    methods: {
+        add: function() {
+            this.num += 100;
+            this.$nextTick(function() {
+                var strNum = document.getElementById("a1").innerHTML;
+                console.log(strNum);
+            });
+        }
+    }
+  })  
+  </script>
+</body>
+</html>
