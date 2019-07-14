@@ -1,0 +1,11 @@
+* 추가적인 주제 - 배포 문제
+1. 배포하려는 서버상의 경로가  / 가 아닌 경우?  
+   https://github.com/stepanowon/vue_deploy_sample
+
+2. lazy loading
+  - 설명 : https://router.vuejs.org/kr/guide/advanced/lazy-loading.html
+  - 예제 : https://codesandbox.io/s/l7y00rx55l
+
+
+* spinner UI 예제
+https://codesandbox.io/s/oj4l62v1r5

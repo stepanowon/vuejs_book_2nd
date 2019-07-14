@@ -19,3 +19,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+*.js.map*
+
+yarn.lock
+package-lock.json
