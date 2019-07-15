@@ -42,7 +42,6 @@ npm install --save  vuejs-paginate@1.9.3 bootstrap@3.3.7
 * 이 책에서 사용하는 서비스 API 예제는 다음을 확인하세요.    
    * API 다운로드 : https://github.com/stepanowon/contactsvc 
    * API 사용법 : http://sample.bmaster.kro.kr
-* 강의용 PDF는 <a href="https://github.com/stepanowon/vuejs_book_2nd_pdf/archive/master.zip">여기</a>에서 다운로드하세요.
 --------------------------------
 
 ## 목차
