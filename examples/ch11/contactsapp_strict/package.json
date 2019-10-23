@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "es6-promise": "^4.2.4",
     "vue": "^2.5.16",
     "vuejs-paginate": "^1.9.3",
