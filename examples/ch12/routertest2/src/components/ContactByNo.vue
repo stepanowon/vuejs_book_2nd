@@ -37,16 +37,11 @@ export default {
         }
     },
     created : function() {
-        this.no = this.$route.params.no;
+        this.no = parseInt(this.$route.params.no);
     },
     computed : {
         contact : function() {
-            var no = this.no;
-            var arr = this.contacts.filter(function(item, index) {
-                return item.no == no;
-            });
-            if (arr.length == 1)   return arr[0];
-            else   return {};
+            return this.contacts.find((item)=> item.no === this.no)
         }
     }
 }

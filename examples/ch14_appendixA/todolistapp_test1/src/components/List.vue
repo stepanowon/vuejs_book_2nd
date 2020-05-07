@@ -34,14 +34,12 @@ ul li.checked::before {
 </style>
 <template>
     <transition-group name="list" tag="ul">
-    <!-- <ul> -->
         <li v-for="a in todolist" :key="a.id" :class="checked(a.done)"
             @click="doneToggle({ id: a.id })">
             <span>{{ a.todo }}</span>
             <span v-if="a.done"> (완료)</span>
             <span class="close" @click.stop="deleteTodo({id:a.id})">&#x00D7;</span>
         </li>
-    <!-- </ul> -->
     </transition-group>
 </template>
 <script type="text/javascript">

@@ -6,12 +6,11 @@
             <nuxt-link v-bind:to="'/contacts/'+c.no">{{c.name}}</nuxt-link>
         </div>
     </div>
-    <nuxt-child></nuxt-child>
+    <nuxt-child/>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-
 export default {
   name : "contacts",
   transition : "elastic",

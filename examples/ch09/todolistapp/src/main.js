@@ -4,5 +4,5 @@ import TodoList from './components/TodoList.vue'
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(TodoList)
+  render: h => h(TodoList),
 }).$mount('#app')

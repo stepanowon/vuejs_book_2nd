@@ -27,7 +27,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import Constant from '~/constant'
-
 export default {
     name : 'contactbyno',
     computed : mapGetters({

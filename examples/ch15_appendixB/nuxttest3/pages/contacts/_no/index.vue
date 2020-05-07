@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <hr class="divider"></hr>
-    <div >
+      <div>
+        <hr class="divider"></hr>
         <table class="detail table table-bordered">
             <tbody>
             <tr class="active">
@@ -23,13 +22,11 @@
             </tbody>
         </table>
     </div>
-  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import Constant from '~/constant'
-
 export default {
     name : 'contactbyno',
     computed : mapGetters({
@@ -43,10 +40,14 @@ export default {
         var no = to.params.no;
         this.$store.commit(Constant.CHANGE_NO, { no : no })
         next()
-    }
+    },
 }
 </script>
 
+
+
 <style>
+.divider { height: 3px; margin-left: auto;margin-right: auto;
+    background-color:#FF0066; color:#FF0066; border: 0 none; }
 table.detail { width:400px; }
 </style>

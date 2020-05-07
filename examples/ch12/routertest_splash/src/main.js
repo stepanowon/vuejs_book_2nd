@@ -5,41 +5,15 @@ import 'bootstrap/dist/css/bootstrap.css'
 import VueRouter from 'vue-router'
 import store from './store';
 import Constant from './Constant';
+import pMinDelay from 'p-min-delay';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
 
-const Home = () => ({
-  component: new Promise(function(resolve) {
-    setTimeout(function() {
-      resolve(import("./components/Home"));
-    }, 1000);
-  })
-});
-
-const About = () => ({
-  component: new Promise(function(resolve) {
-    setTimeout(function() {
-      resolve(import("./components/About"));
-    }, 1000);
-  })
-});
-
-const Contacts = () => ({
-  component: new Promise(function(resolve) {
-    setTimeout(function() {
-      resolve(import("./components/Contacts"));
-    },1000);
-  })
-});
-
-const ContactByNo = () => ({
-  component: new Promise(function(resolve) {
-    setTimeout(function() {
-      resolve(import("./components/ContactByNo"));
-    }, 1000);
-  })
-});
+const Home = ()=> pMinDelay(import("./components/Home"), 1000);
+const About = ()=> pMinDelay(import("./components/About"), 1000);
+const Contacts = ()=> pMinDelay(import("./components/Contacts"), 1000);
+const ContactByNo = ()=> pMinDelay(import("./components/ContactByNo"), 1000);
 
 const router = new VueRouter({
   mode : "history",

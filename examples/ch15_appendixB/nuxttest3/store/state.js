@@ -1,4 +1,4 @@
-export default {
+const state = () => ({
     no : 0,
     contacts : [
         { no:1001, name:'김유신', tel:'010-1212-3331', address:'경주' },
@@ -11,4 +11,6 @@ export default {
         { no:1008, name:'김시민', tel:'010-1212-3338', address:'진주' },
         { no:1009, name:'정약용', tel:'010-1212-3339', address:'남양주' }
     ]
-}
+})
+
+export default state;

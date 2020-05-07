@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import 'bootstrap/dist/css/bootstrap.css'
 import App from './App.vue'
 import store from './store'
 import VueRouter from 'vue-router'
@@ -9,7 +10,6 @@ import ContactList from './components/ContactList';
 import ContactForm from './components/ContactForm';
 import UpdatePhoto from './components/UpdatePhoto';
 
-import 'bootstrap/dist/css/bootstrap.css'
 import ES6Promise from 'es6-promise'
 
 ES6Promise.polyfill()

@@ -37,21 +37,16 @@ export default {
         }
     },
     created : function() {
-        this.no = this.$route.params.no;
+        this.no = parseInt(this.$route.params.no, 10);
     },
     watch : {
-        '$route'(to, from) {
-            this.no = to.params.no;
+        '$route'(to) {
+            this.no = parseInt(to.params.no, 10);
         }
     },
     computed : {
         contact : function() {
-            var no = this.no;
-            var arr = this.contacts.filter(function(item) {
-                return item.no == no;
-            });
-            if (arr.length == 1)   return arr[0];
-            else   return {};
+            return this.contacts.find((item)=>item.no ===this.no)
         }
     }
 }

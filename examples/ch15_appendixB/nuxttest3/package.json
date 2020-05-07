@@ -1,15 +1,17 @@
 {
-  "name": "nuxttest",
+  "name": "nuxttest1",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "license": "MIT",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "nuxt": "^1.4.1"
+    "nuxt": "^2.12.2"
   }
 }

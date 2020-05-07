@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List.vue 스냅샷 테스트(Jest) 1`] = `
-<span
-  name="list"
-  tag="ul"
->
+<ul>
   <li
     class=""
   >
@@ -68,7 +65,7 @@ exports[`List.vue 스냅샷 테스트(Jest) 1`] = `
     </span>
   </li>
   <li
-    class=""
+    class="list-enter list-enter-active"
   >
     <span>
       스쿼시2
@@ -82,5 +79,5 @@ exports[`List.vue 스냅샷 테스트(Jest) 1`] = `
       ×
     </span>
   </li>
-</span>
+</ul>
 `;

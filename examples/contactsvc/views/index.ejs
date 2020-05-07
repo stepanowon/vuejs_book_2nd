@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title><%= title %></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <style>
+        .center{
+            position:relative;
+            left:50%;
+            width:400px;
+            margin:-150px 0 0 -200px;
+        }
+    </style>
+</head>
+<body>
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$("#menu-close").click();>연락처 서비스 API v2.0</a>
+            </li>
+            <li>
+                <a href="#a1" onclick=$("#menu-close").click();>GET /contacts</a>
+            </li>
+            <li>
+                <a href="#a2" onclick=$("#menu-close").click();>GET /contacts/:no</a>
+            </li>
+            <li>
+                <a href="#a3" onclick=$("#menu-close").click();>GET /contacts/search/:name</a>
+            </li>
+            <li>
+                <a href="#a4" onclick=$("#menu-close").click();>POST /contacts</a>
+            </li>
+            <li>
+                <a href="#a5" onclick=$("#menu-close").click();>PUT /contacts/:no</a>
+            </li>
+            <li>
+                <a href="#a6" onclick=$("#menu-close").click();>DELETE /contacts/:no</a>
+            </li>
+            <li>
+                <a href="#a7" onclick=$("#menu-close").click();>POST /contacts/batchinsert</a>
+            </li>
+            <li>
+                <a href="#a8" onclick=$("#menu-close").click();>POST /contacts/:no/photo</a>
+            </li>
+            <li>
+                <a href="#a9" onclick=$("#menu-close").click();>GET /contacts_long</a>
+            </li>
+            <li>
+                <a href="#a10" onclick=$("#menu-close").click();>GET /contacts_long/search/:name</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center" style="text-align: center">
+            <div style="width:400px;" class="center">
+                <h1><%= title %></h1>
+                <h3><%= subtitle %></h3>
+                <div style="text-align: left; margin:20px 50px 20px 50px ">
+                    <ul>
+                        <li>간단한 RESTful Service 예제입니다. 내용은 사이드 메뉴를 열어서 확인하세요.</li>
+                        <li>사진 정보를 변경할 수 있도록 업로드 기능을 추가하였습니다.</li>
+                        <li>자세한 사용 방법은 http://sample.bmaster.kro.kr 을 참조하세요.</li>
+                        <li>JSONP 지원(O)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <aside  id="a1" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>1. GET /contacts</h3>
+            </div>
+        </div>
+    </aside>
+
+    <!-- GET /contacts -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 연락처 목록 조회 기능. 페이지 번호가 0인 경우 전체 데이터 조회</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>pageno :  페이지 번호(기본값:0)</li>
+                            <li>pagesize :  페이지 사이즈(기본값:5)</li>
+                        </ul>
+                        <div>- 요청 형식</div>
+                        <ul>
+                            <li><a href="/contacts">/contacts</a></li>
+                            <li><a href="/contacts?pageno=2">/contacts?pageno=2</a></li>
+                            <li><a href="/contacts?pageno=2&pagesize=4">/contacts?pageno=2&pagesize=4</a></li>
+                        </ul>
+                        <div>- 응답데이터 형식</div>
+                        <pre>
+{
+    "pageno":1,
+    "pagesize":2,
+    "totalcount":100,
+    "contacts":[
+        {"no":100,"name":"Jordyn","tel":"010-3456-8299","address":"서울시","photo":"http://sample.bmaster.kro.kr/photos/100.jpg"},
+        {"no":99,"name":"Cassidy","tel":"010-3456-8298","address":"서울시","photo":"http://sample.bmaster.kro.kr/photos/99.jpg"}
+    ]
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside  id="a2" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>2. GET /contacts/:no</h3>
+            </div>
+        </div>
+    </aside>
+
+   <!-- GET /contacts/:no -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 특정 연락처 한건 조회</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>:no : 연락처 고유 번호(Key)</li>
+                        </ul>
+                        <div>- 요청 형식</div>
+                        <ul>
+                            <li><a href="/contacts/100">/contacts/100</a></li>
+                        </ul>
+                        <div>- 응답데이터 형식</div>
+                        <pre>
+
+{
+    "no":100,
+    "name":"Cassidy",
+    "tel":"010-3456-8299",
+    "address":"서울시",
+    "photo":"http://sample.bmaster.kro.kr/photos/100.jpg"
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside  id="a3" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>3. GET /contacts/search/:name</h3>
+            </div>
+        </div>
+    </aside>
+
+   <!-- GET /contacts/search/:name -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 이름을 이용해 연락처 검색</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>:name : 이름의 일부 문자열(2글자 이상만 허용함)</li>
+                        </ul>
+                        <div>- 요청 형식</div>
+                        <ul>
+                            <li><a href="/contacts/search/jo">/contacts/search/jo</a></li>
+                        </ul>
+                        <div>- 응답데이터 형식</div>
+                        <pre>
+[
+   {"no":49,"name":"Jordan Kelly","tel":"010-3456-8248","address":"서울시","photo":"http://localhost/photos/49.jpg"},
+   {"no":95,"name":"Jocelyn Smith","tel":"010-3456-8294","address":"서울시","photo":"http://localhost/photos/95.jpg"},
+   {"no":100,"name":"Jordyn Baker","tel":"010-3456-8299","address":"서울시","photo":"http://localhost/photos/100.jpg"}
+]</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside  id="a4" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>4. POST /contacts</h3>
+            </div>
+        </div>
+    </aside>
+
+<!-- POST /contacts -->
+    <section  class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 새로운 연락처 추가(초기사진은 noimage.jpg로 설정함)</p>
+                    <p>: 사진을 수정하려면 POST /contacts/:no/photo API를 호출해야 함.</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>name : 이름</li>
+                            <li>tel : 전화번호</li>
+                            <li>address : 주소</li>
+                        </ul>
+                        <div>- 요청 형식(conent-type:application/json 인 경우)</div>
+                        <pre>
+{
+    "name":"강감찬",
+    "tel":"010-2222-3339",
+    "address":"서울시"
+}</pre>
+                        <div>- 요청 형식(conent-type:application/x-www-form-urlencoded 인 경우)</div>
+                        <pre>
+name=....&tel=....&address=....</pre>
+                        <div>- 응답데이터 형식(성공)</div>
+                        <pre>
+{
+   "status": "success",
+   "message": "No(1491372229443) 데이터 추가 성공!!",
+   "no": 1491372229443
+}</pre>
+                        <div>- 응답데이터 형식(실패)</div>
+                        <pre>
+{
+   "status": "fail",
+   "message": "[에러메시지]"
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside  id="a5" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>5. PUT /contacts/:no</h3>
+            </div>
+        </div>
+    </aside>
+
+<!-- PUT /contacts/:no -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 기존 연락처 정보 변경</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>:no : 연락처 고유 번호(Key)</li>
+                            <li>name : 이름</li>
+                            <li>tel : 전화번호</li>
+                            <li>address : 주소</li>
+                        </ul>
+                        <div>- 요청 형식(conent-type:application/json 인 경우)</div>
+                        <pre>
+{
+    "no" : 1491350298389,
+    "name":"강감찬",
+    "tel":"010-2222-3339",
+    "address":"서울시"
+}</pre>
+                        <div>- 요청 형식(conent-type:application/x-www-form-urlencoded 인 경우)</div>
+                        <pre>
+no=...&name=....&tel=....&address=....</pre>
+                        <div>- 응답데이터 형식(성공)</div>
+                        <pre>
+{
+   "status": "success",
+   "message": "No(1491372229443) 데이터 변경 성공!!",
+   "no": 1491372229443
+}</pre>
+                        <div>- 응답데이터 형식(실패)</div>
+                        <pre>
+{
+   "status": "fail",
+   "message": "[에러메시지]"
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside id="a6" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>6. DELETE /contacts/:no</h3>
+            </div>
+        </div>
+    </aside>
+
+<!-- DELETE /contacts/:no -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 기존 연락처 삭제</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>:no : 연락처 고유 번호(Key)</li>
+                        </ul>
+                        <div>- 요청 형식</div>
+                        <ul>
+                            <li>/contacts/1491350298389</li>
+                        </ul>
+                        <div>- 응답데이터 형식(성공)</div>
+                        <pre>
+{
+   "status": "success",
+   "message": "No(1491372229443) 데이터 삭제 성공!!",
+   "no" : 1491372229443
+}</pre>
+                        <div>- 응답데이터 형식(실패)</div>
+                        <pre>
+{
+   "status": "fail",
+   "message": "[에러메시지]"
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside id="a7"  class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>7. POST /contacts/batchinsert</h3>
+            </div>
+        </div>
+    </aside>
+
+<!-- POST /contacts/batchinsert -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 여러 건의 연락처를 한번에 추가함</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <div>- 요청 형식(conent-type:application/json 만 지원)</div>
+                        <pre>
+[ 
+   { "name":"오바마", "tel":"010-2222-3339", "address":"서울시" }, 
+   { "name":"샌더스", "tel":"010-2222-3332", "address":"서울시" },
+   { "name":"트럼프", "tel":"010-2222-3333", "address":"서울시" }
+]</pre>
+                        <div>- 응답데이터 형식(성공)</div>
+                        <pre>
+{
+  "status": "success",
+  "message": "3건 데이터 추가 성공!!",
+  "no": [
+    1491588016908,
+    1491588016909,
+    1491588016910
+  ]
+}</pre>
+                        <div>- 응답데이터 형식(실패)</div>
+                        <pre>
+{
+   "status": "fail",
+   "message": "[에러메시지]"
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside id="a8" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+               <h3>8. POST /contacts/:no/photo</h3> 
+            </div>
+        </div>
+    </aside>
+
+<!-- POST /contacts/:no/photo -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 연락처 정보의 사진을 업로드하고 변경함</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>photo 파일 필드 : multipart/form-data</li>
+                        </ul>
+                        <div>- 요청 형식 폼(conent-type:multipart/form-data 만 지원)</div>
+                        <pre><xmp><form method="post" enctype="multipart/form-data" action="/contacts/{no}/photo"> 
+    <input type="file" name="photo"> 
+    <input type="submit"> 
+</form> </xmp></pre>
+                        <div>- 응답데이터 형식(성공)</div>
+                        <pre>
+{
+  "status": "success",
+  "message": "No(1491586656774) 사진 변경 성공!!",
+  "no": "1491586656774"
+}</pre>
+                        <div>- 응답데이터 형식(실패)</div>
+                        <pre>
+{
+  "status": "fail",
+  "message": "no에 해당하는 연락처 정보 없음"
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside  id="a9" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>9. GET /contacts_long</h3>
+            </div>
+        </div>
+    </aside>
+
+    <!-- GET /contacts -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 1초의 지연시간 후 연락처 목록 응답. 페이지 번호가 0인 경우 전체 데이터 조회</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>pageno :  페이지 번호(기본값:0)</li>
+                            <li>pagesize :  페이지 사이즈(기본값:5)</li>
+                        </ul>
+                        <div>- 요청 형식</div>
+                        <ul>
+                            <li><a href="/contacts_long">/contacts_long</a></li>
+                            <li><a href="/contacts_long?pageno=2">/contacts_long?pageno=2</a></li>
+                            <li><a href="/contacts_long?pageno=2&pagesize=4">/contacts_long?pageno=2&pagesize=4</a></li>
+                        </ul>
+                        <div>- 응답데이터 형식</div>
+                        <pre>
+{
+    "pageno":1,
+    "pagesize":2,
+    "totalcount":100,
+    "contacts":[
+        {"no":100,"name":"Jordyn","tel":"010-3456-8299","address":"서울시","photo":"http://sample.bmaster.kro.kr/photos/100.jpg"},
+        {"no":99,"name":"Cassidy","tel":"010-3456-8298","address":"서울시","photo":"http://sample.bmaster.kro.kr/photos/99.jpg"}
+    ]
+}</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <aside  id="a10" class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                    <h3>10. GET /contacts_long/search/:name</h3>
+            </div>
+        </div>
+    </aside>
+
+   <!-- GET /contacts_long/search/:name -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <p>: 이름을 이용해 연락처 검색(1초의 지연시간 발생)</p>
+                    <p class="lead">
+                        <div>- 전달 파라미터</div>
+                        <ul>
+                            <li>:name : 이름의 일부 문자열(2글자 이상만 허용함)</li>
+                        </ul>
+                        <div>- 요청 형식</div>
+                        <ul>
+                            <li><a href="/contacts_long/search/jo">/contacts_long/search/jo</a></li>
+                        </ul>
+                        <div>- 응답데이터 형식</div>
+                        <pre>
+[
+   {"no":49,"name":"Jordan Kelly","tel":"010-3456-8248","address":"서울시","photo":"http://localhost/photos/49.jpg"},
+   {"no":95,"name":"Jocelyn Smith","tel":"010-3456-8294","address":"서울시","photo":"http://localhost/photos/95.jpg"},
+   {"no":100,"name":"Jordyn Baker","tel":"010-3456-8299","address":"서울시","photo":"http://localhost/photos/100.jpg"}
+]</pre>
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+
+    <aside class="call-to-action bg-primary">
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>RESTful Service sample for Apps</strong>
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:stepanowon@hotmail.com">stepanowon@hotmail.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://github.com/stepanowon"><i class="fa fa-github fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Bmaster(Not Amaster)</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+
+    var onMapMouseleaveHandler = function(event) {
+        var that = $(this);
+        that.on('click', onMapClickHandler);
+        that.off('mouseleave', onMapMouseleaveHandler);
+        that.find('iframe').css("pointer-events", "none");
+    }
+    var onMapClickHandler = function(event) {
+            var that = $(this);
+            that.off('click', onMapClickHandler);
+            that.find('iframe').css("pointer-events", "auto");
+            that.on('mouseleave', onMapMouseleaveHandler);
+        }
+    $('.map').on('click', onMapClickHandler);
+    </script>
+</body>
+</html>

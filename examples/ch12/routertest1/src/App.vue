@@ -17,23 +17,8 @@
 </div>
 </template>
 <script>
-import Home from './components/Home.vue';
-import About from './components/About.vue';
-import Contacts from './components/Contacts.vue';
-import VueRouter from 'vue-router';
-
-const router = new VueRouter({
-  routes : [
-    { path:'/', component: Home },
-    { path:'/home', component: Home },
-    { path:'/about', component: About },
-    { path:'/contacts', component: Contacts }
-  ]
-})
-
 export default {
   name : 'app',
-  router
 }
 
 </script>
