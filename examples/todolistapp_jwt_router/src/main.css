@@ -1,0 +1,18 @@
+.container { padding:10px 10px 10px 10px; }
+.title { text-align: center; font-weight:bold; font-size:20pt; }
+.panel-borderless {
+    border: 0;
+    box-shadow: none;
+}
+[v-cloak] { display:none }
+.todo-done {
+    text-decoration: line-through;
+}
+.pointer { cursor:pointer; }
+.centered-modal .in {
+    display: flex !important;
+}
+.centered-modal .modal-dialog {
+    margin: 10px; padding:10px; 
+         position:absolute; top:20px; left:30px; right:30px;
+}
